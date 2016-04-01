@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Home</title>
+        <!-- include bootstrap, anguraljs, script and css files -->
+        {% load staticfiles %}
+        <!-- Set base_url for later use -->
+        <script>
+            var base_url = "{{ base_url }}";
+        </script>
+        <link rel="stylesheet" href="{% static 'g/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'g/css/style.css' %}">
+        <script src = '{% static 'g/js/angular.min.js' %}'></script>
+        <script src = '{% static 'g/js/script.js' %}'></script>
+        
+    </head>
+<!-- __________________________________________________________________________________________ -->
+    <body>
+        <div ng-app="outlet" ng-controller="app_ctrl">
+            
+            <h1 ng-bind="heading"></h1>
+            <div class = "col-sm-7">
+                <form novalidate class="simple-form">
+                    City: <input class = "form-control" type="text" ng-model="outlet.city" /><br />
+                    Cluster: <input class = "form-control" type="email" ng-model="outlet.cluster" /><br />
+                    Name: <input class = "form-control" type="text" ng-model="outlet.name" value="male" /><br />
+
+                    Latitude: <input class = "form-control" type="text" ng-model="outlet.lat" /><br />
+                    Longitude: <input class = "form-control" type="text" ng-model="outlet.lon" /><br />
+
+                    <input class="btn btn-primary" type="submit" ng-click="submit_to_drive(outlet)" value="Save" />
+                  </form>
+            </div>
+
+            </div>
+        </div>
+    </body>
+
+</html>
+
